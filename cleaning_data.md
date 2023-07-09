@@ -20,7 +20,9 @@ What issues will you address by cleaning the data?
 5.1) checking for columns with null for every value (answer: userid column can be removed)
 5.2) removing duplicate rows filtering by visitid (unique id number is 148642)
 5.3) converting date intger to date format
-
+5.4) checking similar names with typos or case difference in columns 
+- channelgrouping:good
+- socialEngagementType: good (only one type, whats the reason to keep it?)
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
 2.1) select CHAR_LENGTH(sku), count(CHAR_LENGTH(sku)) from products group by CHAR_LENGTH(sku)
@@ -63,7 +65,7 @@ Queries:
   	select * from analytics where units_sold is  null
 5.2) select distinct on (visitid) analytics.* from analytics order by visitid
 5.3) select visitid,date, to_date(date :: text, 'YYYYMMDD') from analytics 
-5.4) checking similar names with typos or case difference in columns
+5.4) select distinct on (channelgrouping) analytics.channelgrouping from analytics 
 
 
 
