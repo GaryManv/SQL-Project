@@ -15,7 +15,10 @@ What issues will you address by cleaning the data?
 4.1) checking if there are skus in sales_report which are not exist in products table (answer: no) 
 4.2) checking if there are values in columns in sales_reports which are identical with same columns in products table.(answer: no)
 4.3) checking if ratio values are calculated correctly
-4.4) 
+   
+**analytics**
+5.1) checking for columns with null for every value (answer: userid column can be removed)
+5.2) remove the first row with duplicated visitorid keep the 
 
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
@@ -52,6 +55,12 @@ Queries:
 		(case when stocklevel = 0 then null else cast(total_ordered as real)/stocklevel end) ratio_check
      	from sales_report
 	where COALESCE(ratio,0) - COALESCE((case when stocklevel = 0 then null else cast(total_ordered as real)/stocklevel end),0)<>0
+ ***
+ 5.1) select * from analytics where userid is not null
+ 	select * from analytics where timeonsite is not null
+  	select * from analytics where units_sold is not null
+  	 select * from analytics where units_sold is  null
+5.2)
 
 
 
