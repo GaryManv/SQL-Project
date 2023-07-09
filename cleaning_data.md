@@ -63,6 +63,7 @@ Queries:
   	select * from analytics where units_sold is  null
 5.2) select distinct on (visitid) analytics.* from analytics order by visitid
 5.3) select visitid,date, to_date(date :: text, 'YYYYMMDD') from analytics 
+5.4) checking similar names with typos or case difference in columns
 
 
 
