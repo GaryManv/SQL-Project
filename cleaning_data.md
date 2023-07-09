@@ -18,7 +18,7 @@ What issues will you address by cleaning the data?
    
 **analytics**
 5.1) checking for columns with null for every value (answer: userid column can be removed)
-5.2) remove the first row with duplicated visitorid keep the 
+5.2) removing duplicate rows filtering by visitid
 
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
@@ -59,8 +59,8 @@ Queries:
  5.1) select * from analytics where userid is not null
  	select * from analytics where timeonsite is not null
   	select * from analytics where units_sold is not null
-  	 select * from analytics where units_sold is  null
-5.2)
+  	select * from analytics where units_sold is  null
+5.2) select distinct on (visitid) analytics.* from analytics order by visitid
 
 
 
