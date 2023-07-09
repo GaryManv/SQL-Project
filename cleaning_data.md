@@ -18,7 +18,8 @@ What issues will you address by cleaning the data?
    
 **analytics**
 5.1) checking for columns with null for every value (answer: userid column can be removed)
-5.2) removing duplicate rows filtering by visitid
+5.2) removing duplicate rows filtering by visitid (unique id number is 148642)
+5.3) converting date intger to date format
 
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
@@ -61,6 +62,7 @@ Queries:
   	select * from analytics where units_sold is not null
   	select * from analytics where units_sold is  null
 5.2) select distinct on (visitid) analytics.* from analytics order by visitid
+5.3) select visitid,date, to_date(date :: text, 'YYYYMMDD') from analytics 
 
 
 
