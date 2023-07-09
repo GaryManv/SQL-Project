@@ -21,8 +21,13 @@ What issues will you address by cleaning the data?
 5.2) removing duplicate rows filtering by visitid (unique id number is 148642)
 5.3) converting date intger to date format
 5.4) checking similar names with typos or case difference in columns 
-- channelgrouping:good
-- socialEngagementType: good (only one type, whats the reason to keep it?)
+	- channelgrouping:good
+	- socialEngagementType: good (only one type, whats the reason to keep it?)
+5.5) check if date and visitstarttime date are equal
+5.6) check if visitor with null timeonsite buy something or visit some pages 
+
+
+  
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
 2.1) select CHAR_LENGTH(sku), count(CHAR_LENGTH(sku)) from products group by CHAR_LENGTH(sku)
