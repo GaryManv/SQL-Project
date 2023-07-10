@@ -26,7 +26,8 @@ What issues will you address by cleaning the data?
 5.5) check if date and visitstarttime date are equal (answer : yes,ok)
 5.6) check if visitor with null timeonsite buy something or visit some pages 
 
-
+** all_sessions **
+6.1) check if all visitors ids' have the same length and don't have duplicates
   
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
