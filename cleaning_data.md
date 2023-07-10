@@ -76,6 +76,9 @@ Queries:
 	   		visitstarttime,CAST(TO_TIMESTAMP(visitstarttime) AS DATE) as visit_start_date 
 			from analytics)
      select visit_date,visit_start_date from date_check where visit_date<>visit_start_date
+5.6) 	select distinct (visitid),timeonsite,units_sold
+	from analytics
+	where timeonsite is null and units_sold>0 or pageviews>0
 
 
 
