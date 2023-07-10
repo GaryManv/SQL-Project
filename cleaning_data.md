@@ -27,7 +27,8 @@ What issues will you address by cleaning the data?
 5.6) check if visitor with null timeonsite buy something or visit some pages 
 
 ** all_sessions **
-6.1) check if all visitors ids' have the same length and don't have duplicates
+6.1) check if all visitors ids' have the same length (answer: basic length has 19 digits, but there are also 18,17 and 16). As it doesn't appear in other tables I just ignore it for now and will not reduce the table rows.
+6.2) check if all visitors ids' don't have duplicates
   
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
@@ -80,6 +81,9 @@ Queries:
 5.6) 	select distinct (visitid),timeonsite,units_sold
 	from analytics
 	where timeonsite is null and units_sold>0 or pageviews>0
+
+ ***
+ 6.1) select length(fullvisitorid),count(length(fullvisitorid)) from all_sessions group by length(fullvisitorid)
 
 
 
