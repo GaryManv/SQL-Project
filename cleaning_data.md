@@ -23,7 +23,7 @@ What issues will you address by cleaning the data?
 5.4) checking similar names with typos or case difference in columns 
 	- channelgrouping:good
 	- socialEngagementType: good (only one type, whats the reason to keep it?)
-5.5) check if date and visitstarttime date are equal
+5.5) check if date and visitstarttime date are equal (answer : yes,ok)
 5.6) check if visitor with null timeonsite buy something or visit some pages 
 
 
@@ -71,7 +71,11 @@ Queries:
 5.2) select distinct on (visitid) analytics.* from analytics order by visitid
 5.3) select visitid,date, to_date(date :: text, 'YYYYMMDD') from analytics 
 5.4) select distinct on (channelgrouping) analytics.channelgrouping from analytics 
-
+5.5 )with date_check as (select visitid,date,to_date(date :: text, 'YYYYMMDD') AS	 
+         		visit_date,
+	   		visitstarttime,CAST(TO_TIMESTAMP(visitstarttime) AS DATE) as visit_start_date 
+			from analytics)
+     select visit_date,visit_start_date from date_check where visit_date<>visit_start_date
 
 
 
