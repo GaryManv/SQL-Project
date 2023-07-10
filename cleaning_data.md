@@ -41,6 +41,7 @@ Queries:
 2.3)  UPDATE products SET sentimentscore = 0 WHERE sentimentscore IS NULL;
       UPDATE products SET sentimentmagnitude = 0 WHERE sentimentmagnitude IS NULL;
 2.4) select product_name,length(product_name),trim(both from product_name),length(trim(both from product_name)) from products
+2.4.1)update products set product_name = trim(both from product_name)
 2.5) select * from products where (sentimentscore not between -1 and 1)	or (sentimentmagnitude not between 0 and 100)
 2.6) select * from products where orderedquantity<0 or stocklevel<0 or restockingleadtime<0
 ***
