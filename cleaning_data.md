@@ -27,10 +27,13 @@ What issues will you address by cleaning the data?
 5.6) check if visitor with null timeonsite buy something or visit some pages
 5.7) All rows except unit_price are grouped. Unit_price column can be removed
 5.8) to compare revenues in tables "analytics" and "all_sessions" create a table with fullvisitorid and total sales amount for each where nulls are filtered (299 rows). To check which value and from which table is more relieable.
+5.9) see 6.3
 
 ** all_sessions **
 6.1) check if all visitors ids' have the same length (answer: basic length has 19 digits, but there are also 18,17 and 16). As it doesn't appear in other tables I just ignore it for now and will not reduce the table rows.
 6.2) check if itemquantity, itemrevenue and transactionrevenue can be dropped as they probably have the same meaing as productquantity, productrevenue or similar. (answer : those columns can be dropped.All values for Itemquantity and itemrevenue are null, while transactionrevenue = totaltransactionrevenue)
+6.3) compare all_sessions and analytics tables using fullvisitorid. As in all_sessions rows with not null values for  fullvisitorid are 81 then will left join to include all rows from analytics.
+
   
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
