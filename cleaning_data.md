@@ -18,8 +18,8 @@ What issues will you address by cleaning the data?
    
 **analytics**
 5.1) checking for columns with null for every value (answer: userid column can be removed)
-5.2) removing duplicate rows filtering by visitid (unique id number is 148642)
-5.3) converting date intger to date format
+5.2) removing duplicate rows filtering by visitid (unique id number is 148625)
+5.3) converting date integer to date format
 5.4) checking similar names with typos or case difference in columns 
 	- channelgrouping:good
 	- socialEngagementType: good (only one type, whats the reason to keep it?)
@@ -72,6 +72,7 @@ Queries:
  	select * from analytics where timeonsite is not null
   	select * from analytics where units_sold is not null
   	select * from analytics where units_sold is  null
+   5.1.1) delete column: alter table analytics2 drop column userid
 5.2) checking duplicates: select distinct on (visitid) analytics.* from analytics order by visitid
 5.2.1) deleting: CREATE TABLE analytics_temp (LIKE analytics);
 		INSERT INTO analytics_temp(visitid,visitstarttime,date,userid,channelgrouping,socialengagementtype,units_sold,pageviews,timeonsite ,
@@ -81,7 +82,9 @@ Queries:
  	from analytics;
 
 	
-5.3) select visitid,date, to_date(date :: text, 'YYYYMMDD') from analytics 
+5.3) checking :select visitid,date, to_date(date :: text, 'YYYYMMDD') from analytics 
+5.3.1)updating: update analytics set date_gm = to_date(date :: text, 'YYYYMMDD')
+
 5.4) select distinct on (channelgrouping) analytics.channelgrouping from analytics 
 5.5 )with date_check as (select visitid,date,to_date(date :: text, 'YYYYMMDD') AS	 
          		visit_date,
