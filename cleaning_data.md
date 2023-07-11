@@ -26,6 +26,7 @@ What issues will you address by cleaning the data?
 5.5) check if date and visitstarttime date are equal (answer : yes,ok)
 5.6) check if visitor with null timeonsite buy something or visit some pages
 5.7) All rows except unit_price are grouped. Unit_price column can be removed
+5.8) to compare revenues in tables "analytics" and "all_sessions" create a table with fullvisitorid and total sales amount for each where nulls are filtered (299 rows). To check which value and from which table is more relieable.
 
 ** all_sessions **
 6.1) check if all visitors ids' have the same length (answer: basic length has 19 digits, but there are also 18,17 and 16). As it doesn't appear in other tables I just ignore it for now and will not reduce the table rows.
@@ -95,6 +96,7 @@ Queries:
 	from analytics
 	where timeonsite is null and units_sold>0 or pageviews>0
  5.7) ALTER TABLE analytics DROP COLUMN unit_price
+ 5.8) create table visitor_by_amount as select fullvisitorid,sum(revenue) from analytics group by fullvisitorid having sum(revenue) is not null
 
  ***
  6.1) select length(fullvisitorid),count(length(fullvisitorid)) from all_sessions group by length(fullvisitorid)
