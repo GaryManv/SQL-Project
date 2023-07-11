@@ -72,7 +72,15 @@ Queries:
  	select * from analytics where timeonsite is not null
   	select * from analytics where units_sold is not null
   	select * from analytics where units_sold is  null
-5.2) select distinct on (visitid) analytics.* from analytics order by visitid
+5.2) checking duplicates: select distinct on (visitid) analytics.* from analytics order by visitid
+5.2.1) deleting: CREATE TABLE analytics_temp (LIKE analytics);
+		INSERT INTO analytics_temp(visitid,visitstarttime,date,userid,channelgrouping,socialengagementtype,units_sold,pageviews,timeonsite ,
+    						bounces ,revenue, unit_price, visitnumber , fullvisitorid )
+	select distinct on (visitid) visitid,visitstarttime,date,userid,channelgrouping,socialengagementtype, units_sold ,pageviews ,timeonsite ,bounces,
+	 revenue ,unit_price ,visitnumber , fullvisitorid 
+ 	from analytics;
+
+	
 5.3) select visitid,date, to_date(date :: text, 'YYYYMMDD') from analytics 
 5.4) select distinct on (channelgrouping) analytics.channelgrouping from analytics 
 5.5 )with date_check as (select visitid,date,to_date(date :: text, 'YYYYMMDD') AS	 
