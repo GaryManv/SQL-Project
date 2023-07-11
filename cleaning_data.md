@@ -14,7 +14,7 @@ What issues will you address by cleaning the data?
 **sales_report**
 4.1) checking if there are skus in sales_report which are not exist in products table (answer: no) 
 4.2) checking if there are values in columns in sales_reports which are identical with same columns in products table.(answer: no)
-4.3) checking if ratio values are calculated correctly
+4.3) checking if ratio values are calculated correctly (answer: yes)
    
 **analytics**
 5.1) checking for columns with null for every value (answer: userid column can be removed)
@@ -24,7 +24,8 @@ What issues will you address by cleaning the data?
 	- channelgrouping:good
 	- socialEngagementType: good (only one type, whats the reason to keep it?)
 5.5) check if date and visitstarttime date are equal (answer : yes,ok)
-5.6) check if visitor with null timeonsite buy something or visit some pages 
+5.6) check if visitor with null timeonsite buy something or visit some pages
+5.7) All rows except unit_price are grouped. Unit_price column can be removed
 
 ** all_sessions **
 6.1) check if all visitors ids' have the same length (answer: basic length has 19 digits, but there are also 18,17 and 16). As it doesn't appear in other tables I just ignore it for now and will not reduce the table rows.
@@ -82,6 +83,7 @@ Queries:
 5.6) 	select distinct (visitid),timeonsite,units_sold
 	from analytics
 	where timeonsite is null and units_sold>0 or pageviews>0
+ 5.7) ALTER TABLE analytics DROP COLUMN unit_price
 
  ***
  6.1) select length(fullvisitorid),count(length(fullvisitorid)) from all_sessions group by length(fullvisitorid)
