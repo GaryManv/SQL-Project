@@ -30,7 +30,7 @@ What issues will you address by cleaning the data?
 
 ** all_sessions **
 6.1) check if all visitors ids' have the same length (answer: basic length has 19 digits, but there are also 18,17 and 16). As it doesn't appear in other tables I just ignore it for now and will not reduce the table rows.
-6.2) check if all visitors ids' don't have duplicates.(answer: there are duplicates but it's not a visitor table it's just a combined data - so duplicates are fine.
+6.2) check if itemquantity, itemrevenue and transactionrevenue can be dropped as they probably have the same meaing as productquantity, productrevenue or similar. (answer : those columns can be dropped.All values for Itemquantity and itemrevenue are null, while transactionrevenue = totaltransactionrevenue)
   
 Queries:
 1)select sku, count(*)>1 as duplicate_sku from products group by sku having count(*)>1
@@ -100,7 +100,11 @@ Queries:
 
  ***
  6.1) select length(fullvisitorid),count(length(fullvisitorid)) from all_sessions group by length(fullvisitorid)
- 6.2) select fullvisitorid, count(*)>1 from all_sessions group by fullvisitorid having count(*)>1 
+ 6.2) checking: select fullvisitorid,totaltransactionrevenue,transactions,timeonsite,productquantity,productprice,productrevenue,
+	productsku,itemquantity,itemrevenue,transactionrevenue
+	FROM all_sessions
+	where transactionrevenue is not null
+ 6.2.1) removing : alter table all_sessions drop column transactionrevenue --,itemrevenue,itemquantity
 
 
 
