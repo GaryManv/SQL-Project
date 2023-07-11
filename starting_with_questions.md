@@ -70,12 +70,16 @@ no clear preferencies. The max number is 3 per category for USA, Mountain View
 
 
 SQL Queries:
+select country,productsku, count(productsku) as top_sell
+	from all_sessions
+	where totaltransactionrevenue is not null
+	group by country,productsku
+	order by top_sell desc
 
 
 
 Answer:
-
-
+	termostat is most selling product in US
 
 
 
@@ -83,10 +87,14 @@ Answer:
 
 SQL Queries:
 
+	select country,sum(t_revenue)/(select sum(t_revenue) from tbl_revenue)*100::integer as ratio
+	from tbl_revenue
+	group by country
+	order by ratio desc
 
 
 Answer:
-
+US has the most impact. its share is 93%.
 
 
 
