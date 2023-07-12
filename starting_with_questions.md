@@ -2,7 +2,7 @@ Answer the following questions and provide the SQL queries used to find the answ
 
     
 **Question 1: Which cities and countries have the highest level of transaction revenues on the site?**
-Thoughts: productrevenue (null),totaltransactionrevenue and revenue are the same. Will use revenue from analytics table. What to do with many nulls? Can we somehow calculate them , at least put some average value? Then the first will get total by country and chose the 
+Thoughts: productrevenue (null),totaltransactionrevenue and revenue are the same. Will use revenue from analytics table. What to do with many nulls? Can we somehow calculate them , at least put some average value? 
 
 SQL Queries:
 -- creating union tables from analytics and all_sessions with less columns and grouped revenues in order to check y countryies and cities
