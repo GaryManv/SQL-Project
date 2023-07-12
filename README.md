@@ -8,16 +8,16 @@ To check my ability to transform and analyse provided dataset. The goal is to pr
 Step1. Loaded csv files into Database as per instructions.
 
 Step2. Data cleaning. For all tables was checking 
-2. the duplicates (rows and columns),
-2. nulls and negative values,
-2. values are in it's range (e.g. sentimentscore)
-2. different data types 
-2. similar names with "typos" (Refferal and refferal)
-2. data values mathing to the pattern (sku lenght),
-2. extra spaces,
-2. matching similar information in different tables
-2. matching comparable data in the same table (e.g visitstarttime and orderdate)
-2. existance of the second step without existing first step (e.g. customer with null time on web site making order)
+- the duplicates (rows and columns),
+- nulls and negative values,
+- values are in it's range (e.g. sentimentscore)
+- different data types 
+- similar names with "typos" (Refferal and refferal)
+- data values mathing to the pattern (sku lenght),
+- extra spaces,
+- matching similar information in different tables
+- matching comparable data in the same table (e.g visitstarttime and orderdate)
+- existance of the second step without existing first step (e.g. customer with null time on web site making order)
 
 ## Results
 Step1.uploaded files
