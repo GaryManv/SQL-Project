@@ -25,7 +25,7 @@ Checking risk areas described above and investigating any failed assertion
 4) Checking outliers
         
          select sku,'sentiment score is out of (-1 to 1) range' as result 
-   from products
+         from products
          where sentimentscore not between -1 and 1
 
          union all
