@@ -8,7 +8,7 @@ To check my ability to transform and analyse provided dataset. The goal is to pr
 Step1. Loaded csv files into Database as per instructions.
 
 Step2. Data cleaning. For all tables was checking 
-2.1 the duplicates (rows and columns),
+// 2.1 the duplicates (rows and columns),
 2.2 nulls and negative values,
 2.3 values are in it's range (e.g. sentimentscore)
 2.4 different data types 
