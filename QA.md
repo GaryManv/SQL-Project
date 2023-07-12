@@ -28,7 +28,7 @@ Checking risk areas described above and investigating any failed assertion
    from products
    where sentimentscore not between -1 and 1
 
-   union all
+         union all
 
    select sku,'sentimentmagnitude is out of (0 to 100) range' as result
    from products
