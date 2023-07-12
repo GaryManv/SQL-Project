@@ -11,7 +11,7 @@ Step2. Data cleaning. For all tables was checking
 - the duplicates (rows and columns),
 - nulls and negative values,
 - values are in it's range (e.g. sentimentscore)
-- different data types 
+- different data types
 - similar names with "typos" (Refferal and refferal)
 - data values mathing to the pattern (sku lenght),
 - extra spaces,
@@ -22,13 +22,22 @@ Step2. Data cleaning. For all tables was checking
 ## Results
 Step1.uploaded files
 Step2. 
-2.1 duplicated rows were removed from analytics table; itemquantity, itemrevenue and transactionrevenur  columns were removed from all_sessions table
-2.2 negative data wasn't found; in product table Null value for sentimentscore was updated to 0.
-2.3 sentimentscore and sentimentmagnitude are in the range -1 to 1 and 0 to 100 accordingly
-- 
+- duplicated rows were removed from analytics table; itemquantity, itemrevenue and transactionrevenur  columns were removed from all_sessions table
+- negative data wasn't found; in product table Null value for sentimentscore was updated to 0.
+- sentimentscore and sentimentmagnitude are in the range -1 to 1 and 0 to 100 accordingly
+- different data types : not found
+- typos : not found
+- matching pattern: lengths for values in products.sku are different
+- extra spaces: found and removed from products.product_name
+- matching tables: sku's in sales_report and products are matching
+- visitstarttime = orderdate, no differencies
+- found 20 visits where items were sold without spending time on the site
 
 ## Challenges 
+
 Step1.System was requesting autorisation for the path.After changing the path still was getting the same error. The bug was in my coding: scv was mentioned instead of csv !
+Step2. 
+
 
 ## Future Goals
 (what would you do if you had more time?)
