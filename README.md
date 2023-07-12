@@ -72,4 +72,5 @@ Step 6. Schema.png was uploaded to github
 
 
 ## Future Goals
-(what would you do if you had more time?)
+I would probably try to make the database relational. Create new tables like visitors, channelgrouping, orders, etc.
+Removing columns or transfer them to the other more relevant tables. E.g. ordered quantity from products table can be removed or transfered to orders table
