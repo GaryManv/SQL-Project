@@ -23,11 +23,12 @@ Checking risk areas described above and investigating any failed assertion
      select visitid,'wrong date format' as result from analytics where cast(pg_typeof(visitstarttime)as text) = 'date'
 
 4) Checking outliers
-         select sku,'sentiment score is out of (-1 to 1) range' as result
+        
+
+             select sku,'sentiment score is out of (-1 to 1) range' as result
       from products
       where sentimentscore not between -1 and 1
-
-            union all
+   union all
 
             select sku,'sentimentmagnitude is out of (0 to 100) range' as result
             from products
