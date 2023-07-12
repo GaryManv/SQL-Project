@@ -1,13 +1,25 @@
 What are your risk areas? Identify and describe them.
 1) Duplicated rows
-2) Different data types for the same column
+2) Wrong data values (e.g. the leght of visitorid)
 3) Wrong data type
-4) Wrong data values (e.g. the leght of visitorid)
-5) Checking outliers
-6) Nulls for the whole column / row
-7) different data in different tables for the same atribute
+4) Checking outliers
+5) Nulls for the whole column / row
+6) different data in different tables for the same atribute
 
 
 
 QA Process:
 Describe your QA process and include the SQL queries used to execute it.
+
+Checking risk areas described above and investigating any failed assertion
+
+1) Duplicated rows
+      select sku, 'duplicated_sku' as result from products group by sku having count(*)>1
+   
+3) Wrong data values
+      select sku,'Check the lenght of sku: to be 14 char' as result from products where CHAR_LENGTH(sku)<>14
+
+4) Wrong data type
+     select visitid,'wrong date format' as result from analytics where cast(pg_typeof(visitstarttime)as text) = 'date'
+      
+
